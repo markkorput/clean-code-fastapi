@@ -1,5 +1,5 @@
 from todoapp.use_cases.todos import create_todo, CreateTodoParams
-from todoapp.context.todo_repo import TodoRepo, set
+from todoapp.context.todo_repo import TodoRepo
 
 class InMemoryTodoRepo(TodoRepo):
     def __init__(self):

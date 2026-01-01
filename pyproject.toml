@@ -11,6 +11,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "poethepoet>=0.39.0",
     "pytest>=9.0.2",
 ]
 
@@ -18,3 +19,7 @@ dev = [
 pythonpath = [
   "src"
 ]
+
+[tool.poe.tasks]
+check = "ruff check"
+test = "pytest"
