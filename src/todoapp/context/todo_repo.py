@@ -1,21 +1,12 @@
+from dependency_injector import containers, providers
+
 from ..entities.todo import Todo
 
 class TodoRepo:
     def create(self, todo: Todo) -> Todo:
         ...
 
-_todo_repo: TodoRepo | None = None
+class TodoRepoContainer(containers.DeclarativeContainer):
+    todo_repo: TodoRepo = providers.Dependency()
 
-def get() -> TodoRepo:
-    global _todo_repo
-    assert _todo_repo
-    return _todo_repo
-
-def set(todo_repo: TodoRepo, force: bool = False):
-    global _todo_repo
-    
-    if not force:
-        assert not _todo_repo
-
-    _todo_repo = todo_repo
 
