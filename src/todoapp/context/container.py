@@ -8,5 +8,5 @@ class Container(containers.DeclarativeContainer):
         auto_wire=False
     )
 
-    todo_repo: TodoRepo = providers.Dependency()
+    todo_repo = providers.Dependency(instance_of=TodoRepo)
 
